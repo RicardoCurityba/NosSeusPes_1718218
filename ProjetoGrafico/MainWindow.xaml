@@ -1,0 +1,34 @@
+﻿<Window x:Class="ProjetoGrafico.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjetoGrafico"
+        mc:Ignorable="d"
+        Title="Bem Vindo a NosSeusPés!" Height="450" Width="500">
+    <Grid>
+        <Menu>
+            <MenuItem Header="Arquivo">
+                <MenuItem Header="Sair" Click="MenuItem_Click_3"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Estoque">
+                <MenuItem x:Name="MenuGerenciarEstoque" Header="Gerenciar Estoque" Click="MenuItem_Click"></MenuItem>
+                <MenuItem x:Name="MenuPesquisarEstoque" Header="Pesquisar Estoque" Click="MenuItem_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Sapato">
+                <MenuItem x:Name="MenuNovoSapato" Header="Novo Sapato" Click="MenuItem_Click_4"></MenuItem>
+                <MenuItem x:Name="MenuGerenciarSapatos" Header="Gerenciar Sapato" Click="MenuItem_Click_4"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Clientes">
+                <MenuItem x:Name="MenuNovaPF" Header="Novo Cliente PF" Click="MenuItem_Click_1"></MenuItem>
+                <MenuItem x:Name="MenuNovaPJ" Header="Novo Cliente PJ" Click="MenuItem_Click_1"></MenuItem>
+                <MenuItem x:Name="MenuGerenciarPF" Header="Gerenciar Cliente PF" Click="MenuItem_Click_1"></MenuItem>
+                <MenuItem x:Name="MenuGerenciarPJ" Header="Gerenciar Cliente PJ" Click="MenuItem_Click_1"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Pedidos">
+                <MenuItem x:Name="MenuNovoPedido" Header="Novo Pedido" Click="MenuItem_Click_2"></MenuItem>
+                <MenuItem x:Name="MenuGerenciarPedido" Header="Gerenciar Pedido" Click="MenuItem_Click_2"></MenuItem>
+            </MenuItem>
+        </Menu>
+    </Grid>
+</Window>

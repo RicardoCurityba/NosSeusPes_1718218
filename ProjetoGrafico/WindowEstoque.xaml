@@ -1,0 +1,45 @@
+﻿<Window x:Class="ProjetoGrafico.WindowEstoque"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjetoGrafico"
+        mc:Ignorable="d"
+        Title="SCE - Sistema de Controle de Estoque" Height="450" Width="500">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Id:"></Label>
+        <TextBox Grid.Column="1" IsReadOnly="True" Text="{Binding Path=EstoqueSelecionado.Id}" Margin="2"></TextBox>
+        <Label Content="Tamanho:" Grid.Row="1"></Label>
+        <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=EstoqueSelecionado.Tamanho}" Margin="2" IsReadOnly="True"></TextBox>
+        <Label Content="Quantidade:" Grid.Row="2"></Label>
+        <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=EstoqueSelecionado.Quantidade}" Margin="2"></TextBox>
+        <Label Content="Seleção:" Grid.Row="3"></Label>
+        <ComboBox Grid.Column="1" Grid.Row="3" Margin="2" ItemsSource="{Binding Path=Sapatos}" DisplayMemberPath="Nome" SelectedItem="{Binding Path=SapatoSelecionado}"></ComboBox>
+        <DataGrid x:Name="EstoqueDataGridView" Grid.Row="4" Grid.ColumnSpan="2" Margin="0,5,0,5"
+                  ItemsSource="{Binding Path=Estoques}" SelectedItem="{Binding Path=EstoqueSelecionado}"
+                  AutoGenerateColumns="False" CanUserAddRows="False"
+                  SelectionChanged="EstoqueDataGridView_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
+                <!--<DataGridTextColumn Header="Id Modelo" Binding="{Binding IdModelo}"></DataGridTextColumn>-->
+                <DataGridTextColumn Header="Nome" Binding="{Binding Modelo.Nome}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Tamanho" Binding="{Binding Tamanho}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="ButtonSalvar" Content="Salvar" Grid.Row="5" Width="50" Margin="10" Click="ButtonSalvar_Click"></Button>
+        <Button x:Name="ButtonCancelar" Content="Cancelar" Grid.Row="5" Grid.Column="1" Width="50" Margin="10" Click="ButtonCancelar_Click"></Button>
+    </Grid>
+</Window>

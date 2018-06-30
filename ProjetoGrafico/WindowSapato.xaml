@@ -1,0 +1,51 @@
+﻿<Window x:Class="ProjetoGrafico.WindowSapato"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjetoGrafico"
+        mc:Ignorable="d"
+        Title="SCS - Sistema de Controle de Sapatos" Height="450" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Id:"></Label>
+        <TextBox Grid.Column="1" IsReadOnly="True" Text="{Binding Path=SapatoSelecionado.Id}"></TextBox>
+        <Label Content="Nome:" Grid.Row="1"></Label>
+        <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=SapatoSelecionado.Nome}"></TextBox>
+        <Label Content="Possui Cadarço:" Grid.Row="2"></Label>
+        <CheckBox Grid.Column="1" Grid.Row="2" IsChecked="{Binding Path=SapatoSelecionado.Cadarco}" Margin="5"></CheckBox>
+        <Label Content="Material:" Grid.Row="3"></Label>
+        <ComboBox Grid.Column="1" Grid.Row="3" ItemsSource="{Binding Path=Sapatos}" SelectedItem="{Binding Path=SapatoSelecionado.Material}" DisplayMemberPath="Material"/>
+        <Label Content="Cor:" Grid.Row="4"></Label>
+        <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding Path=SapatoSelecionado.Cor}"></TextBox>
+        <Label Content="Preço:" Grid.Row="5"></Label>
+        <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding Path=SapatoSelecionado.Preco}"></TextBox>
+        <DataGrid x:Name="SapatoDataGridView" Grid.Row="6" Grid.ColumnSpan="2" Visibility="{Binding Path=VisibilidadeDataGrid}"
+                  ItemsSource="{Binding Path=Sapatos}" SelectedItem="{Binding Path=SapatoSelecionado}"
+                  AutoGenerateColumns="False" SelectionChanged="SapatoDataGridView_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Cadarço" Binding="{Binding Cadarco}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Material" Binding="{Binding Material}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Cor" Binding="{Binding Cor}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Preco" Binding="{Binding Preco}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="SalvarButton" Content="Salvar" Grid.Row="7" Width="50" Margin="10" Click="SalvarButton_Click"></Button>
+        <Button x:Name="CancelarButton" Content="Cancelar" Grid.Row="7" Grid.Column="1" Width="50" Margin="10" Click="CancelarButton_Click"></Button>
+    </Grid>
+</Window>
