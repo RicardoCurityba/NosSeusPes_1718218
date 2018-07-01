@@ -8,9 +8,9 @@ namespace BibliotecaProjeto
 {
     public class Pessoa
     {
-        public int Id { get; set; } = 0;
-        public String Nome { get; set; } = "";
-        public ICollection<Pedido> Pedidos { get; set; } = new List<Pedido>();
+        public int Id { get; set; }
+        public String Nome { get; set; }
+        public ICollection<Pedido> Pedidos { get; set; }
 
         public override string ToString()
         {

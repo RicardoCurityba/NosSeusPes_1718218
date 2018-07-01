@@ -14,7 +14,7 @@ namespace BibliotecaProjeto.Migrations
 
         protected override void Seed(BancoDeDadosSapato_1718218 context)
         {
-            /*ModeloSapato m1 = new ModeloSapato() { Id = 1, Nome = "Sapato 1", Cadarco = true, Cor = "Cinza", Material = "Couro Sintético", Preco = 35.45m };
+            ModeloSapato m1 = new ModeloSapato() { Id = 1, Nome = "Sapato 1", Cadarco = true, Cor = "Cinza", Material = "Couro Sintético", Preco = 35.45m };
             ModeloSapato m2 = new ModeloSapato() { Id = 2, Nome = "Sapato 2", Cadarco = false, Cor = "Preto", Material = "Látex", Preco = 24.12m };
             ModeloSapato m3 = new ModeloSapato() { Id = 3, Nome = "Sapato 3", Cadarco = false, Cor = "Branco", Material = "Tecido", Preco = 32.15m };
             ModeloSapato m4 = new ModeloSapato() { Id = 4, Nome = "Sapato 4", Cadarco = true, Cor = "preto", Material = "Borracha", Preco = 28.75m };
@@ -47,7 +47,7 @@ namespace BibliotecaProjeto.Migrations
             Pessoa pj = new PessoaJuridica() { Id = 2, Nome = "Calçados Maria", RazaoSocial = "cte calçados ltda", CNPJ = "00.000.000/0000-00", Endereco = endereco };
             context.Pessoas.Add(pf);
             context.Pessoas.Add(pj);
-            context.SaveChanges();*/
+            context.SaveChanges();
         }
     }
 }

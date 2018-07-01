@@ -89,19 +89,6 @@ namespace ProjetoGrafico
                 this.NotifyPropertyChanged("Sapatos");
             }
         }
-        private ICollection<int> _Quantidades = new List<int>();
-        public ICollection<int> Quantidades
-        {
-            get
-            {
-                return _Quantidades;
-            }
-            set
-            {
-                _Quantidades = value;
-                this.NotifyPropertyChanged("Quantidades");
-            }
-        }
 
         public Boolean ModoCriacaoPedido { get; set; } = false;
 
@@ -141,15 +128,14 @@ namespace ProjetoGrafico
             set
             {
                 _Estoque = value;
-                Quantidades.Clear();
+                /*Quantidades.Clear();
                 Quantidade = 0;
                 int qt = ctx.Estoques.Where(x => x.IdModelo == EstoqueSelecionado.IdModelo && x.Tamanho == EstoqueSelecionado.Tamanho).Select(x => x.Quantidade).SingleOrDefault();
                 for (int i = 0; i <= qt; i++)
                 {
                     this.Quantidades.Add(i);
-                }
+                }*/
                 this.NotifyPropertyChanged("EstoqueSelecionado");
-                this.NotifyPropertyChanged("Quantidades");
             }
         }
         private ModeloSapato _Sapato = new ModeloSapato();
@@ -176,7 +162,15 @@ namespace ProjetoGrafico
             set
             {
                 _Quantidade = value;
+                var x = ctx.Estoques.Where(e => e.Id == EstoqueSelecionado.Id).Select(e => e.Quantidade).SingleOrDefault();
+                if (value > x)
+                {
+                    MessageBox.Show("Valor digitado maior que o estoque");
+                    _Quantidade = 0;
+                }
+                PedidoSelecionado.Preco = SapatoSelecionado.Preco * _Quantidade;
                 this.NotifyPropertyChanged("Quantidade");
+                this.NotifyPropertyChanged("PedidoSelecionado");
             }
         }
 
@@ -188,6 +182,11 @@ namespace ProjetoGrafico
             if (!ModoCriacaoPedido)
             {
                 this.Pedidos = ctx.Pedidos.ToList();
+                foreach(Pedido p in Pedidos)
+                {
+                    p.Modelo = ctx.Sapatos.Where(mod => mod.Id == p.IdModelo).SingleOrDefault();
+                    p.Cliente = ctx.Pessoas.Where(cli => cli.Id == p.IdCliente).SingleOrDefault();
+                }
             }
             DataContext = this;
         }
@@ -207,6 +206,7 @@ namespace ProjetoGrafico
             this.PedidoSelecionado.Tamanho = this.EstoqueSelecionado.Tamanho;
             this.PedidoSelecionado.Quantidade = this.Quantidade;
             this.PedidoSelecionado.IdCliente = this.PessoaSelecionada.Id;
+            this.EstoqueSelecionado.Quantidade -= this.Quantidade;
             ctx.Pedidos.Add(PedidoSelecionado);
             ctx.SaveChanges();
             this.Close();

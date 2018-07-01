@@ -8,8 +8,8 @@ namespace BibliotecaProjeto
 {
     public class PessoaFisica : Pessoa
     {
-        public String CPF { get; set; } = "";
-        public DateTime Nascimento { get; set; } = new DateTime();
+        public String CPF { get; set; }
+        public DateTime Nascimento { get; set; }
 
         public override string ToString()
         {

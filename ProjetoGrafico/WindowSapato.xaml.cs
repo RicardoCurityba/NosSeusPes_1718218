@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,6 +47,19 @@ namespace ProjetoGrafico
             {
                 _Sapatos = value;
                 this.NotifyPropertyChanged("Sapatos");
+            }
+        }
+        private IList<String> _Modelos = new List<String>() { "Couro Sintético", "Latéx", "Tecido", "Borracha" };
+        public IList<String> Modelos
+        {
+            get
+            {
+                return _Modelos;
+            }
+            set
+            {
+                _Modelos = value;
+                this.NotifyPropertyChanged("Modelos");
             }
         }
         public Boolean ModoCriacaoSapato { get; set; } = false;
@@ -98,7 +112,7 @@ namespace ProjetoGrafico
                 ctx.SaveChanges();
             }
             //Exibi uma mensagem de confirmação ao clicar no botão salvar
-            MessageBoxResult message = MessageBox.Show("Procedimento Efetuado com sucesso", "Confirmar", MessageBoxButton.OK, MessageBoxImage.None);
+            MessageBox.Show("Procedimento Efetuado com sucesso");
             this.Close();
         }
 
@@ -112,6 +126,24 @@ namespace ProjetoGrafico
             foreach(ModeloSapato modelo in e.RemovedItems)
             {
                 ctx.Sapatos.Remove(modelo);
+            }
+        }
+
+        private void BtnSelecionarFoto_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.FileName = "Relatorio"; // Nome padrão
+            dlg.Filter = "Imagens (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
+            Nullable<bool> result = dlg.ShowDialog();
+
+            if (result == true)
+            {
+                var uri = new Uri(dlg.FileName);
+                var imagemFile = File.Open(dlg.FileName, FileMode.Open);
+                SapatoSelecionado.Foto = new byte[imagemFile.Length];
+                imagemFile.Read(SapatoSelecionado.Foto,
+                    0, (int)imagemFile.Length);
+                NotifyPropertyChanged("Foto");
             }
         }
     }

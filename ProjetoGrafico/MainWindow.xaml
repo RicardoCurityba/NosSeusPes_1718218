@@ -29,6 +29,9 @@
                 <MenuItem x:Name="MenuNovoPedido" Header="Novo Pedido" Click="MenuItem_Click_2"></MenuItem>
                 <MenuItem x:Name="MenuGerenciarPedido" Header="Gerenciar Pedido" Click="MenuItem_Click_2"></MenuItem>
             </MenuItem>
+            <MenuItem Header="Relatórios">
+                <MenuItem Header="Estoque de Sapatos" x:Name="Relatorio_EstoqueSapatos" Click="MenuItem_Click_5"></MenuItem>
+            </MenuItem>
         </Menu>
     </Grid>
 </Window>

@@ -8,14 +8,14 @@ namespace BibliotecaProjeto
 {
     public class ModeloSapato
     {
-        public int Id { get; set; } = 0;
-        public String Nome { get; set; } = "";
-        public bool Cadarco { get; set; } = false;
-        public String Material { get; set; } = "";
-        public String Cor { get; set; } = "";
-        public Decimal Preco { get; set; } = 0.0m;
+        public int Id { get; set; }
+        public String Nome { get; set; }
+        public bool Cadarco { get; set; }
+        public String Material { get; set; }
+        public String Cor { get; set; }
+        public Decimal Preco { get; set; }
         public byte[] Foto { get; set; }
-        public ICollection<Estoque> Estoques { get; set; } = new List<Estoque>();
-        public ICollection<Pedido> Pedidos { get; set; } = new List<Pedido>();
+        public ICollection<Estoque> Estoques { get; set; }
+        public ICollection<Pedido> Pedidos { get; set; }
     }
 }

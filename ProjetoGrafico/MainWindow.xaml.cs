@@ -78,8 +78,6 @@ namespace ProjetoGrafico
                 WindowVenda venda = new WindowVenda();
                 venda.ModoCriacaoPedido = true;
                 venda.ShowDialog();
-                /*WindowEscolherModelo modelo = new WindowEscolherModelo();
-                modelo.ShowDialog();*/
             }
             
         }
@@ -102,6 +100,26 @@ namespace ProjetoGrafico
                 sapato.ShowDialog();
             }
             
+        }
+
+        private void MenuItem_Click_5(object sender, RoutedEventArgs e)
+        {
+            if(sender == Relatorio_EstoqueSapatos)
+            {
+                BancoDeDadosSapato_1718218 ctx = new BancoDeDadosSapato_1718218();
+                Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+                dlg.FileName = "Relatorio"; // Nome padrão
+                dlg.DefaultExt = ".xlsx"; // Extensão do arquivo
+                dlg.Filter = "Excel (.xlsx)|*.xlsx"; // Filtros
+                Nullable<bool> result = dlg.ShowDialog();
+
+                // Somente irá salvar se o usuário selecionar um arquivo.
+                if (result == true)
+                {
+                    // Salvar Documento
+                    ServiceClosedXML.CriarPlanilhaSapatosEstoque2(ctx.Estoques.ToList(), dlg.FileName);
+                }
+            }
         }
     }
 }

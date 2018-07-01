@@ -96,7 +96,7 @@ namespace ProjetoGrafico
         {
             ctx.SaveChanges();
             //Exibi uma mensagem de confirmação ao clicar no botão salvar
-            MessageBoxResult message = MessageBox.Show("Procedimento Efetuado com sucesso", "Confirmar", MessageBoxButton.OK, MessageBoxImage.None);
+            MessageBox.Show("Procedimento Efetuado com sucesso");
             this.Close();
         }
 

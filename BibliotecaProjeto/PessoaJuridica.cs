@@ -9,13 +9,13 @@ namespace BibliotecaProjeto
 {
     public class PessoaJuridica : Pessoa
     {
-        public String RazaoSocial { get; set; } = "";
-        public String CNPJ { get; set; } = "";
+        public String RazaoSocial { get; set; }
+        public String CNPJ { get; set; }
 
         public int IdEndereco { get; set; }
 
         [ForeignKey("IdEndereco")]
-        public Endereco Endereco { get; set; } = new Endereco();
+        public Endereco Endereco { get; set; }
 
         public override string ToString()
         {
