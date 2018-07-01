@@ -212,6 +212,7 @@ namespace ProjetoGrafico
             this.PedidoSelecionado.IdModelo = this.SapatoSelecionado.Id;
             this.PedidoSelecionado.Tamanho = this.EstoqueSelecionado.Tamanho;
             this.PedidoSelecionado.IdCliente = this.PessoaSelecionada.Id;
+            this.PedidoSelecionado.DataCompra = DateTime.Now;
             if (ModoCriacaoPedido)
             {
                 this.EstoqueSelecionado.Quantidade -= this.Quantidade;

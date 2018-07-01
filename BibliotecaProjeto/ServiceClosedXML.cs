@@ -116,6 +116,7 @@ namespace BibliotecaProjeto
                 var columnPrecoUni = worksheet.Column("E");
                 var columnQuantidade = worksheet.Column("F");
                 var columnPrecoTot = worksheet.Column("G");
+                var columnDataCompra = worksheet.Column("H");
                 columnNome.Cell(ListaSapatosLinhaInicio).Value = "Sapato";
                 columnCadarco.Cell(ListaSapatosLinhaInicio).Value = "Cadarço";
                 columnMaterial.Cell(ListaSapatosLinhaInicio).Value = "Material";
@@ -123,6 +124,7 @@ namespace BibliotecaProjeto
                 columnPrecoUni.Cell(ListaSapatosLinhaInicio).Value = "Preço Sapato";
                 columnQuantidade.Cell(ListaSapatosLinhaInicio).Value = "Quantidade";
                 columnPrecoTot.Cell(ListaSapatosLinhaInicio).Value = "Preço Total";
+                columnDataCompra.Cell(ListaSapatosLinhaInicio).Value = "Data da Compra";
                 worksheet.Row(ListaSapatosLinhaInicio).Style.Fill.BackgroundColor = XLColor.Gray;
                 worksheet.Row(ListaSapatosLinhaInicio).Style.Font.Bold = true;
                 ListaSapatosLinhaInicio++;
@@ -144,6 +146,7 @@ namespace BibliotecaProjeto
                     columnPrecoUni.Cell(ListaSapatosLinhaInicio).Value = pd.Modelo.Preco;
                     columnQuantidade.Cell(ListaSapatosLinhaInicio).Value = pd.Quantidade;
                     columnPrecoTot.Cell(ListaSapatosLinhaInicio).Value = pd.Preco;
+                    columnDataCompra.Cell(ListaSapatosLinhaInicio).Value = pd.DataCompra;
                     ListaSapatosLinhaInicio++;
                 }
             }

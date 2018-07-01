@@ -69,9 +69,6 @@
     <Compile Include="WindowEstoque.xaml.cs">
       <DependentUpon>WindowEstoque.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WindowEstoqueBusca.xaml.cs">
-      <DependentUpon>WindowEstoqueBusca.xaml</DependentUpon>
-    </Compile>
     <Compile Include="WindowPessoaFisica.xaml.cs">
       <DependentUpon>WindowPessoaFisica.xaml</DependentUpon>
     </Compile>
@@ -101,10 +98,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowEstoque.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WindowEstoqueBusca.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

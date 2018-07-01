@@ -97,6 +97,10 @@
     <Compile Include="Migrations\201806301358133_10_57.Designer.cs">
       <DependentUpon>201806301358133_10_57.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807012114006_18_13.cs" />
+    <Compile Include="Migrations\201807012114006_18_13.Designer.cs">
+      <DependentUpon>201807012114006_18_13.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pessoa.cs" />
     <Compile Include="Endereco.cs" />
@@ -133,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806301358133_10_57.resx">
       <DependentUpon>201806301358133_10_57.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807012114006_18_13.resx">
+      <DependentUpon>201807012114006_18_13.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

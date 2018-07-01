@@ -19,5 +19,6 @@ namespace BibliotecaProjeto
         [ForeignKey("IdCliente")]
         public Pessoa Cliente { get; set; }
         public decimal Preco { get; set; }
+        public DateTime DataCompra { get; set; }
     }
 }
