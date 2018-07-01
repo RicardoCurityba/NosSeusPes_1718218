@@ -13,7 +13,6 @@
             </MenuItem>
             <MenuItem Header="Estoque">
                 <MenuItem x:Name="MenuGerenciarEstoque" Header="Gerenciar Estoque" Click="MenuItem_Click"></MenuItem>
-                <MenuItem x:Name="MenuPesquisarEstoque" Header="Pesquisar Estoque" Click="MenuItem_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="Sapato">
                 <MenuItem x:Name="MenuNovoSapato" Header="Novo Sapato" Click="MenuItem_Click_4"></MenuItem>
@@ -31,6 +30,7 @@
             </MenuItem>
             <MenuItem Header="Relatórios">
                 <MenuItem Header="Estoque de Sapatos" x:Name="Relatorio_EstoqueSapatos" Click="MenuItem_Click_5"></MenuItem>
+                <MenuItem Header="Pedidos por Cliente" x:Name="Relatorio_PedidosCliente" Click="MenuItem_Click_5"></MenuItem>
             </MenuItem>
         </Menu>
     </Grid>

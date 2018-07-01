@@ -32,12 +32,7 @@ namespace ProjetoGrafico
             {
                 WindowEstoque estoque = new WindowEstoque();
                 estoque.ShowDialog();
-            }else if(sender == MenuPesquisarEstoque)
-            {
-                WindowEstoqueBusca estoqueBusca = new WindowEstoqueBusca();
-                estoqueBusca.ShowDialog();
-            }
-            
+            }            
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
@@ -104,11 +99,11 @@ namespace ProjetoGrafico
 
         private void MenuItem_Click_5(object sender, RoutedEventArgs e)
         {
-            if(sender == Relatorio_EstoqueSapatos)
+            BancoDeDadosSapato_1718218 ctx = new BancoDeDadosSapato_1718218();
+            if (sender == Relatorio_EstoqueSapatos)
             {
-                BancoDeDadosSapato_1718218 ctx = new BancoDeDadosSapato_1718218();
                 Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
-                dlg.FileName = "Relatorio"; // Nome padrão
+                dlg.FileName = "Relatorio_EstoqueSapato"; // Nome padrão
                 dlg.DefaultExt = ".xlsx"; // Extensão do arquivo
                 dlg.Filter = "Excel (.xlsx)|*.xlsx"; // Filtros
                 Nullable<bool> result = dlg.ShowDialog();
@@ -117,7 +112,20 @@ namespace ProjetoGrafico
                 if (result == true)
                 {
                     // Salvar Documento
-                    ServiceClosedXML.CriarPlanilhaSapatosEstoque2(ctx.Estoques.ToList(), ctx.Sapatos.ToList(), dlg.FileName);
+                    ServiceClosedXML.CriarPlanilhaSapatosEstoque(ctx.Estoques.ToList(), ctx.Sapatos.ToList(), dlg.FileName);
+                }
+            }
+            else if(sender == Relatorio_PedidosCliente)
+            {
+                Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+                dlg.FileName = "Relatorio_PedidoCliente";
+                dlg.DefaultExt = ".xlsx";
+                dlg.Filter = "Excel (.xlsx)|*.xlsx";
+                Nullable<bool> result = dlg.ShowDialog();
+
+                if (result == true)
+                {
+                    ServiceClosedXML.CriarPlanilhaClientePedidos(ctx.Pessoas.ToList(), ctx.Pedidos.ToList(), ctx.Enderecos.ToList(), ctx.Sapatos.ToList(), dlg.FileName);
                 }
             }
         }

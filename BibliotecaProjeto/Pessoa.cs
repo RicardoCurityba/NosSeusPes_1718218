@@ -11,6 +11,5 @@ namespace BibliotecaProjeto
         public int Id { get; set; }
         public String Nome { get; set; }
         public ICollection<Pedido> Pedidos { get; set; }
-
     }
 }
