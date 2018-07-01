@@ -102,6 +102,13 @@ namespace ProjetoGrafico
             set
             {
                 _Pedido = value;
+                if(_Pedido.Id > 0)
+                {
+                    PessoaSelecionada = _Pedido.Cliente;
+                    EstoqueSelecionado = ctx.Estoques.Where(est => est.IdModelo == _Pedido.IdModelo && est.Tamanho == _Pedido.Tamanho).SingleOrDefault();
+                    SapatoSelecionado = _Pedido.Modelo;
+                    Quantidade = _Pedido.Quantidade;
+                }
                 this.NotifyPropertyChanged("PedidoSelecionado");
             }
         }
@@ -204,10 +211,19 @@ namespace ProjetoGrafico
         {
             this.PedidoSelecionado.IdModelo = this.SapatoSelecionado.Id;
             this.PedidoSelecionado.Tamanho = this.EstoqueSelecionado.Tamanho;
-            this.PedidoSelecionado.Quantidade = this.Quantidade;
             this.PedidoSelecionado.IdCliente = this.PessoaSelecionada.Id;
-            this.EstoqueSelecionado.Quantidade -= this.Quantidade;
-            ctx.Pedidos.Add(PedidoSelecionado);
+            if (ModoCriacaoPedido)
+            {
+                this.EstoqueSelecionado.Quantidade -= this.Quantidade;
+                this.PedidoSelecionado.Quantidade = this.Quantidade;
+                ctx.Pedidos.Add(PedidoSelecionado);
+            }
+            else
+            {
+                this.EstoqueSelecionado.Quantidade += this.PedidoSelecionado.Quantidade;
+                this.EstoqueSelecionado.Quantidade -= this.Quantidade;
+                this.PedidoSelecionado.Quantidade = this.Quantidade;
+            }
             ctx.SaveChanges();
             this.Close();
         }

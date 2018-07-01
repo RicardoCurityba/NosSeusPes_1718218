@@ -110,5 +110,13 @@ namespace ProjetoGrafico
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            foreach(Pessoa p in e.RemovedItems)
+            {
+                ctx.Pessoas.Remove(p);
+            }
+        }
     }
 }

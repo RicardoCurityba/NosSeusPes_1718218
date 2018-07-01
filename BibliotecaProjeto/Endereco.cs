@@ -19,10 +19,5 @@ namespace BibliotecaProjeto
         public String Estado { get; set; }
         public String Pais { get; set; }
 
-        public override string ToString()
-        {
-            return "\n Logradouro: " + this.Logradouro + "\n Número: " + this.Numero + "\n Complemento: " + this.Complemento + "\n CEP: " + this.CEP + 
-                "\n Bairro: " + this.Bairro + "\n Cidade: " + this.Cidade + "\n Estado: " + this.Estado + "\n Pais: " + this.Pais;
-        }
     }
 }

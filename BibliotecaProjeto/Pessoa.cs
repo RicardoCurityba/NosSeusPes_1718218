@@ -12,9 +12,5 @@ namespace BibliotecaProjeto
         public String Nome { get; set; }
         public ICollection<Pedido> Pedidos { get; set; }
 
-        public override string ToString()
-        {
-            return " Id: " + this.Id + "\n Nome: " + this.Nome;
-        }
     }
 }

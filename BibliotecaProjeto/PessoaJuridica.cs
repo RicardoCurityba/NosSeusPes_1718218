@@ -17,9 +17,5 @@ namespace BibliotecaProjeto
         [ForeignKey("IdEndereco")]
         public Endereco Endereco { get; set; }
 
-        public override string ToString()
-        {
-            return base.ToString() + "\n Razão Social: " + this.RazaoSocial + "\n CNPJ: " + this.CNPJ + this.Endereco.ToString();
-        }
     }
 }

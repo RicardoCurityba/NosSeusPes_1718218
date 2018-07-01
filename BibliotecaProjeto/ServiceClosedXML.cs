@@ -59,7 +59,7 @@ namespace BibliotecaProjeto
             workbook.SaveAs(caminho, true, evaluateFormulae: true);
         }
 
-        public static void CriarPlanilhaSapatosEstoque2(IEnumerable<Estoque> estoques, String caminho)
+        public static void CriarPlanilhaSapatosEstoque2(IEnumerable<Estoque> estoques, IEnumerable<ModeloSapato> sapatos, String caminho)
         {
             //Criar um Workbook. Um arquvio excel.
             var workbook = new XLWorkbook();
@@ -88,6 +88,8 @@ namespace BibliotecaProjeto
                 ListaSapatosLinhaInicio++;
                 foreach (Estoque e in est)
                 {
+                    ModeloSapato s = sapatos.Where(sap => sap.Id == e.IdModelo).SingleOrDefault();
+                    e.Modelo = s;
                     columnNome.Cell(ListaSapatosLinhaInicio).Value = e.Modelo.Nome;
                     if (e.Modelo.Cadarco)
                     {

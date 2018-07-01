@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ProjetoGrafico"
         mc:Ignorable="d"
         Title="Bem Vindo a NosSeusPés!" Height="450" Width="500">
-    <Grid>
+    <Grid  Margin="5,15,5,5">
         <Menu>
             <MenuItem Header="Arquivo">
                 <MenuItem Header="Sair" Click="MenuItem_Click_3"></MenuItem>

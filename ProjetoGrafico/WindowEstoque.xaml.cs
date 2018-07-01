@@ -74,6 +74,21 @@ namespace ProjetoGrafico
             }
         }
 
+        private String _Busca;
+        public String Busca
+        {
+            get
+            {
+                return _Busca;
+            }
+            set
+            {
+                _Busca = value;
+                this.Estoques = ctx.Estoques.Where(estoque => estoque.Modelo.Nome.Contains(Busca)).ToList();
+                this.NotifyPropertyChanged("Busca");
+            }
+        }
+
         //Tela para gerenciar estoque
         public WindowEstoque()
         {

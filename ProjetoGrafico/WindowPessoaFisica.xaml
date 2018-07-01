@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ProjetoGrafico"
         mc:Ignorable="d"
         Title="SCC-PF - Sistema de Controle de Cliente-Pessoa Física" Height="450" Width="500">
-    <Grid Margin="5">
+    <Grid  Margin="5,15,5,5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -29,7 +29,7 @@
         <DatePicker Grid.Column="1" Grid.Row="3" SelectedDate="{Binding Path=PessoaSelecionada.Nascimento}"></DatePicker>
         <DataGrid Grid.Row="4" Grid.ColumnSpan="2" Margin="0,5,0,5" Visibility="{Binding Path=VisibilidadeDataGrid}"
                   ItemsSource="{Binding Path=PessoasFisicas}" SelectedItem="{Binding Path=PessoaSelecionada}"
-                  AutoGenerateColumns="False" CanUserAddRows="False">
+                  AutoGenerateColumns="False" CanUserAddRows="False" SelectionChanged="DataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"></DataGridTextColumn>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ProjetoGrafico"
         mc:Ignorable="d"
         Title="SCS - Sistema de Controle de Sapatos" Height="650" Width="500">
-    <Grid Margin="5">
+    <Grid  Margin="5,15,5,5">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>

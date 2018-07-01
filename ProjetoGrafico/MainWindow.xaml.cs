@@ -117,7 +117,7 @@ namespace ProjetoGrafico
                 if (result == true)
                 {
                     // Salvar Documento
-                    ServiceClosedXML.CriarPlanilhaSapatosEstoque2(ctx.Estoques.ToList(), dlg.FileName);
+                    ServiceClosedXML.CriarPlanilhaSapatosEstoque2(ctx.Estoques.ToList(), ctx.Sapatos.ToList(), dlg.FileName);
                 }
             }
         }
