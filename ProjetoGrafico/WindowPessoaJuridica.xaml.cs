@@ -22,7 +22,7 @@ namespace ProjetoGrafico
     public partial class WindowPessoaJuridica : Window, INotifyPropertyChanged
     {
         private BancoDeDadosSapato_1718218 ctx = new BancoDeDadosSapato_1718218();
-        private PessoaJuridica _PessoaSelecionada = new PessoaJuridica();
+        private PessoaJuridica _PessoaSelecionada = new PessoaJuridica() { Endereco = new Endereco() };
         public PessoaJuridica PessoaSelecionada
         {
             get

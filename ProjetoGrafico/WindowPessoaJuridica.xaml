@@ -58,7 +58,7 @@
                 <DataGridTextColumn Header="Logradouro" Binding="{Binding Endereco.Logradouro}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Numero" Binding="{Binding Endereco.Numero}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Complemento" Binding="{Binding Endereco.Complemento}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Cep" Binding="{Binding Endereco.Cep}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Cep" Binding="{Binding Endereco.CEP}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Bairro" Binding="{Binding Endereco.Bairro}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Cidade" Binding="{Binding Endereco.Cidade}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Estado" Binding="{Binding Endereco.Estado}"></DataGridTextColumn>
